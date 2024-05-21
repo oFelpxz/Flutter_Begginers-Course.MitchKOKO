@@ -3,11 +3,20 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  // Não Faço ideia
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+// Extende o MyApp, Pra funcionar tive que fazer isso.
+class _MyAppState extends State<MyApp> {
+  var names = ["Mitch", "Sharon", "Vince"];
 
   @override
   Widget build(BuildContext context) {
@@ -23,27 +32,15 @@ class MyApp extends StatelessWidget {
         // BODY -------------------------------------
         // BODY: Definimos o conteúdo principal da tela.
         // List View: Permite listas roláveis.
-        body: ListView(
-          // Muda o alinhamento da lista.
-          scrollDirection: Axis.horizontal,
-          children: [
-            // Elemento 1:
-            Container(
-              width: 350,
-              color: Colors.deepPurple,
-            ),
-            // Elemento 2:
-            Container(
-              width: 350,
-              color: Colors.deepPurple[400],
-            ),
-            // Elemento 3:
-            Container(
-              width: 350,
-              color: Colors.deepPurple[200],
-            )
-          ],
-        ),
+        body: ListView.builder(
+          // Item Count: Número de items que vão ter, o Index
+          itemCount: names.length,
+          // Item Build: Basicamente um For:
+          itemBuilder: (context, index)=> ListTile(
+            //Title: Nesse estamos pegando o Valor do Index.
+            title: Text(names[index]),
+          )
+        )
         // BODY -------------------------------------
 
       ),
