@@ -16,7 +16,6 @@ class MyApp extends StatefulWidget {
 
 // Extende o MyApp, Pra funcionar tive que fazer isso.
 class _MyAppState extends State<MyApp> {
-  var names = ["Mitch", "Sharon", "Vince"];
 
   @override
   Widget build(BuildContext context) {
@@ -28,22 +27,21 @@ class _MyAppState extends State<MyApp> {
       // SCAFFOLD: é um plano branco, funciona como um esquelo que segura todas as partes do app.
       home: Scaffold( 
       // COMPONENTES DO SCAFFOLD:
-
         // BODY -------------------------------------
         // BODY: Definimos o conteúdo principal da tela.
         // List View: Permite listas roláveis.
-        body: ListView.builder(
-          // Item Count: Número de items que vão ter, o Index
-          itemCount: names.length,
-          // Item Build: Basicamente um For:
-          itemBuilder: (context, index)=> ListTile(
-            //Title: Nesse estamos pegando o Valor do Index.
-            title: Text(names[index]),
-          )
+        body: GridView.builder(
+          // ItemCount: Número de itens.
+          itemCount: 4,
+          // CrossAxisCount: Número de elemento que vai ter por ROW.
+          // ItemBuilder: Basicamente um for, vai utilizar o itemCount como index, e o context, é o conteúdo de cada grid.
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), itemBuilder: (context, index) => Container(
+            color: Colors.deepPurple,
+            margin: EdgeInsets.all(3),
+            )
         )
-        // BODY -------------------------------------
+      )
 
-      ),
     );
   }
 }
