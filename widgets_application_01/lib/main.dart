@@ -16,6 +16,9 @@ class MyApp extends StatefulWidget {
 
 // Extende o MyApp, Pra funcionar tive que fazer isso.
 class _MyAppState extends State<MyApp> {
+  void userTapped(){
+    print("User tapped!");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,30 +32,17 @@ class _MyAppState extends State<MyApp> {
       // COMPONENTES DO SCAFFOLD:
         // BODY -------------------------------------
         // BODY: Definimos o conteúdo principal da tela.
-        // Stack: Organiza os elementos um em cima do outro.
-        body: Stack(
-          alignment: Alignment.center,
-          children: [
-            // BIG BOX
-            Container(
-              height: 300,
-              width: 300,
-              color: Colors.deepPurple
-            ),
-            // MEDIUM BOX
-            Container(
-              height: 200,
+        body: Center(
+          child: GestureDetector(
+            onTap: userTapped,
+            child: Container(
               width: 200,
-              color: Colors.deepPurple[400],
+              height: 200,
+              color: Colors.deepPurple,
+              child: Center(child: Text("Tap me!")),
             ),
-            // SMALL BOX
-            Container(
-              height: 100,
-              width: 100,
-              color: Colors.deepPurple[200],
-            )
-          ],
-        ) 
+          ),
+        )
       )
     );
   }
