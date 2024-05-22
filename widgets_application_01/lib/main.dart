@@ -29,19 +29,31 @@ class _MyAppState extends State<MyApp> {
       // COMPONENTES DO SCAFFOLD:
         // BODY -------------------------------------
         // BODY: Definimos o conteúdo principal da tela.
-        // List View: Permite listas roláveis.
-        body: GridView.builder(
-          // ItemCount: Número de itens.
-          itemCount: 4,
-          // CrossAxisCount: Número de elemento que vai ter por ROW.
-          // ItemBuilder: Basicamente um for, vai utilizar o itemCount como index, e o context, é o conteúdo de cada grid.
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), itemBuilder: (context, index) => Container(
-            color: Colors.deepPurple,
-            margin: EdgeInsets.all(3),
+        // Stack: Organiza os elementos um em cima do outro.
+        body: Stack(
+          alignment: Alignment.center,
+          children: [
+            // BIG BOX
+            Container(
+              height: 300,
+              width: 300,
+              color: Colors.deepPurple
+            ),
+            // MEDIUM BOX
+            Container(
+              height: 200,
+              width: 200,
+              color: Colors.deepPurple[400],
+            ),
+            // SMALL BOX
+            Container(
+              height: 100,
+              width: 100,
+              color: Colors.deepPurple[200],
             )
-        )
+          ],
+        ) 
       )
-
     );
   }
 }
