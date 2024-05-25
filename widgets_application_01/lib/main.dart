@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:widgets_application_01/pages/first_page.dart';
-import 'package:widgets_application_01/pages/second_page.dart';
+import 'package:widgets_application_01/pages/home_page.dart';
+import 'package:widgets_application_01/pages/settings_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,7 +24,8 @@ class _MyAppState extends State<MyApp> {
       // Rotas:
       routes: {
         '/fistpage': (context) => FirstPage(),
-        '/secondpage': (context) => SecondePage()
+        '/homepage': (context) => HomePage(),
+        '/settingspage': (context) => SettingsPage()
       },
     );
   }
