@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:widgets_application_01/pages/second_page.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage ({super.key});
@@ -14,8 +13,7 @@ class FirstPage extends StatelessWidget {
         child: ElevatedButton(
           child: Text("Ir para página 2"),
           onPressed: () {
-            // Navegar para a segunda página.
-            Navigator.push(context, MaterialPageRoute(builder: (context) => SecondePage()));
+            Navigator.pushNamed(context, '/secondpage');
           },
         ),
       ),
